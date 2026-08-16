@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./src/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+        <title>E-Commerce System</title>
+    </head>
+    <body>
+        <header class="navbar">
+        <img src="./src/assets/serenitea_sparkle_logo.png" alt="serenitea Logo" id="serenitea-logo">
+        <p id="motto">Building community one cup at a time</p>
+        <div class="cart-display">
+            <button type="button" id="cart-btn" aria-label="Open Shopping Cart">
+            <img src="./src/assets/serenitea_empty_cart.png" alt="Shopping cart" id="cart-icon">
+            </button>
+            <span id="cart-count">0 items</span>
+        </div>
+        <nav class="navigation-container">
+            <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Teas</a></li>
+            <li><a href="#">Herbs</a></li>
+            <li><a href="#">Spices</a></li>
+            <li><a href="#">Classes and Events</a></li>
+            <li><a href="#">Divination and Healing</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="cart-page">
+        <h1>My Cart</h1>
+        <form id="cart-search-form">
+            <label for="cart-search">Search Cart</label>
+            <input
+                type="search"
+                id="cart-search"
+                placeholder="Search items in your cart"
+            >
+            <button type="submit" id="cart-search-btn">
+                Search
+            </button>
+        </form>
+        <section class="cart-container">
+            <div class="cart-header">
+                <span>Product</span>
+                <span>Quantity</span>
+                <span>Subtotal</span>
+            </div>
+            <div id="cart-items">
+            </div>
+        </section>
+        <section class="cart-totals">
+            <p>
+                Subtotal:
+                <span id="cart-subtotal">$0.00</span>
+            </p>
+            <p>
+                Total after tax:
+                <span id="cart-total">$0.00</span>
+            </p>
+        </section>
+    </main>
+    <script type="module" src="/src/cart.ts"></script>
+</body>
+</html>

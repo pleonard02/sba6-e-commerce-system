@@ -1,0 +1,473 @@
+:root {
+  --serenitea-ink: #292526;
+  --serenitea-ivory: #F5F0E7;
+  --serenitea-blue: #A9BED4;
+  --serenitea-green: #526858;
+  --serenitea-wine: #874943;
+  --serenitea-gold: #C6A45E;
+  --serenitea-clay: #C7957C;
+  --serenitea-mist: #DCE4E7;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--serenitea-ivory);
+}
+
+.navbar {
+  width: 100%;
+  height: 15rem;
+  margin-top: 0;
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    #C7957C 0%,
+    #d1a691 25%,
+    #dbb7a6 50%,
+    #d1a691 75%,
+    #C7957C 100%);
+  color: var(--serenitea-wine);
+}
+
+header {
+  position: relative;
+}
+
+.cart-display {
+  position: absolute;
+  top: 18px;
+  right: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+#cart-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+#cart-btn:hover #cart-icon {
+  transform: scale(1.08);
+}
+
+#cart-icon {
+  width: 50px; 
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.2s ease
+}
+
+#cart-count {
+  color: var(--serenitea-green);
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+#serenitea-logo {
+  width: 25%;
+  display: block;
+  margin: 0 auto;
+}
+
+#motto {
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.125rem;
+  margin-bottom: 10px;
+}
+
+.hero {
+  width: 100%;
+  height: 770px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left:0;
+  right: 0;
+  bottom: 0;
+  height: 100px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #F5F0E7
+  );
+  pointer-events: none;
+}
+
+#serenitea-hero {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.featured-products {
+  display: grid;
+  margin: 50px 10px;
+  justify-content: space-evenly;
+  grid-template-columns: 20% 20% 20% 20%;
+  grid-template-rows: 50% 50%;
+  row-gap: 20px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 340px;
+  min-height: 460px;
+  padding: 20px;
+  border: 2px solid #d1a691;
+  border-radius: 15px;
+  box-sizing: border-box;
+  box-shadow: 0 3px 8px rgba( 0, 0, 0, 0.12);
+  background-color: #c99379;
+  padding: 14px;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+.description-container {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: #f7f2e9;
+  border-radius: 11px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 2px solid #fdfbf9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+  color: var(--serenitea-wine);
+}
+
+.description-container img {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  object-position: center;
+  margin: 0 auto;
+  transform: translateX(8px);
+}
+
+.description-card h5 {
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(63, 81, 67, 0.2);
+}
+
+.description-card p {
+  font-size: 0.75rem;
+}
+
+.product-price, 
+.price-after-discount {
+  text-align: center;
+}
+
+.price-after-discount {
+  color: var(--serenitea-green);
+  font-weight: 600;
+}
+
+.add-to-cart-btn {
+  display: block;
+  background-color: #465747;
+  color: #f7f2e9;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  margin: 12px auto 0;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #5b6c5a;
+  transform: translateY(-2px);
+}
+
+.navigation-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.navigation-container ul {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  color: var(--serenitea-wine);
+}
+
+.navigation-container li {
+  list-style-type: none;
+}
+
+.navigation-container a {
+  text-decoration: none;
+  color: var(--serenitea-wine);
+  font-weight: 400;
+}
+
+.navigation-container a:hover {
+  color: var(--serenitea-green);
+  font-weight: 600;
+}
+
+.newsletter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  color: var(--serenitea-wine);
+}
+
+#newsletter-input {
+  margin-bottom: 15px;
+  width: 250px;
+  height: 25px;
+  background-color: var(--serenitea-ivory);
+  color: var(--serenitea-wine);
+  border-radius: 5px;
+  border: 1px solid var(--serenitea-green);
+  box-shadow: inset 0 2px 6px rgba( 0, 0, 0, 0.15),
+              0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+#newsletter-input::placeholder {
+  color: var(--serenitea-wine);
+}
+
+#newsletter-btn {
+  width: 150px;
+  padding: 10px 12px;
+  color: var(--serenitea-wine);
+  background-color: var(--serenitea-clay);
+  border: 1px solid #d1a691;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+#newsletter-btn:hover {
+  color: var(--serenitea-ivory);
+  background-color: var(--serenitea-green);
+  border: 1px solid #455649;
+}
+
+.store-info-container {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(
+    180deg,
+    #C7957C 0%,
+    #d1a691 25%,
+    #dbb7a6 50%,
+    #d1a691 75%,
+    #C7957C 100%
+  );
+  color: var(--serenitea-wine);
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  gap: 25px;
+}
+
+.store-info-container h5 {
+  margin-bottom: 0;
+  font-size: 1.125rem;
+}
+
+.store-info-container p {
+  margin-top: 0;
+  font-size: 0.95rem;
+}
+
+#cart-items {
+    width: 80%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+.cart-page > h1, 
+#cart-search-form {
+  width: 80%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cart-page > h1 {
+  margin-top: 25px;
+  margin-bottom: 20px;
+  color: var(--serenitea-green);
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.cart-page label {
+  color: var(--serenitea-wine);
+}
+
+#cart-search {
+  height: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+#cart-search::placeholder {
+  color: var(--serenitea-wine);
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 1fr 150px 150px;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--serenitea-clay);
+}
+
+.cart-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: var(--serenitea-wine);
+  font-weight: 500;
+}
+
+.cart-items {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.cart-product {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.cart-product img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.cart-product p {
+    color: var(--serenitea-wine);
+    font-weight: 600;
+}
+
+.cart-quantity,
+.cart-item-subtotal {
+    text-align: center;
+    font-weight: 600;
+}
+
+.cart-item-subtotal {
+    color: var(--serenitea-wine);
+    font-weight: 700;
+}
+
+.cart-totals {
+  color: var(--serenitea-wine); 
+}
+
+#cart-subtotal {
+  color: var(--serenitea-wine);
+}
+
+.cart-quantity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.quantity-input {
+    width: 70px;
+    padding: 6px;
+    text-align: center;
+
+    border: 1px solid var(--serenitea-clay);
+    border-radius: 6px;
+
+    background-color: var(--serenitea-ivory);
+    color: var(--serenitea-wine);
+    box-shadow: inset 0 2px 8px rgba( 0, 0, 0, 0.12);
+}
+
+.update-cart-btn,
+.remove-cart-btn,
+#cart-search-btn {
+    background-color: var(--serenitea-green);
+    color: var(--serenitea-ivory);
+    border-radius: 7px;
+    padding: 7px 14px;
+    width: fit-content;
+    justify-self: center;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.update-cart-btn, 
+#cart-search-button {
+  border: 1px so lid #465747;
+}
+
+.remove-cart-btn {
+  border: 1px solid #9c655f;
+}
+
+.update-cart-btn:hover,
+#cart-search-btn:hover {
+    background-color: #465747;
+}
+
+.remove-cart-btn {
+    background-color: var(--serenitea-wine);
+}
+
+.remove-cart-btn:hover {
+    background-color: #6f3d38;
+}
+
+.cart-totals {
+  width: 80%;
+  max-width: 1100px;
+  margin: 20px auto 0;
+  text-align: right;
+}
+
+.cart-totals p:last-child {
+  font-weight: 700;
+  color: var(--serenitea-green);
+  font-size: 1.05rem;
+}
