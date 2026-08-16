@@ -1,5 +1,6 @@
 import { Product } from "./models/Product";
 import { fetchData } from "./services/apiService";
+import type { ProductData } from "./types/ProductData";
 
 const productCards = document.querySelectorAll<HTMLDivElement>(".description-container");
 const cartCount = document.querySelector<HTMLElement>("#cart-count");
@@ -11,17 +12,6 @@ if (cartButton) {
     cartButton.addEventListener("click", () => {
         window.location.href = "./cart.html";
     });
-}
-
-
-interface ProductData {
-    id: number;
-    title: string;
-    description: string;
-    category: string;
-    price: number;
-    discountPercentage: number;
-    thumbnail: string;
 }
 
 /* So, I am using this project to pitch a website redesign for my friends' business. Their products are more niche so I am narrowing the accepted categories by what you could potentially find in their store's backend*/ 

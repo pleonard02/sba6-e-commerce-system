@@ -1,4 +1,5 @@
 import { calculateTax } from "./utils/taxCalculator";
+import type { ProductData } from "./types/ProductData";
 
 const cartSubtotalElement = document.querySelector<HTMLElement>("#cart-subtotal");
 const cartTotalElement = document.querySelector<HTMLElement>("#cart-total");
@@ -32,7 +33,7 @@ searchForm?.addEventListener("submit", (event) => {
 
 const savedCart = localStorage.getItem("cart");
 
-const cart = savedCart
+const cart: ProductData[] = savedCart
     ? JSON.parse(savedCart)
     : [];
 
@@ -50,10 +51,12 @@ if (cartIcon && cart.length > 0) {
 
 const cartItems = document.querySelector<HTMLDivElement>("#cart-items");
 
-const cartWithQuantity: {
-    product: any;
+interface CartItem {
+    product: ProductData;
     quantity: number;
-}[] = [];
+}
+
+const cartWithQuantity: CartItem[] = [];
 
 cart.forEach((product) => {
 
@@ -130,7 +133,7 @@ cartItems?.addEventListener("click", (event) => {
     if (target.classList.contains("remove-cart-btn")) {
         const productId = Number(target.dataset.id);
 
-        const updatedCart = cart.filter((product: any) => {
+        const updatedCart = cart.filter((product) => {
             return product.id !== productId;
         });
 
@@ -154,22 +157,22 @@ cartItems?.addEventListener("click", (event) => {
 
         const newQuantity = Number(quantityInput.value);
 
-        if (newQuantity < 1) {
+        if (!Number.isInteger(newQuantity) || newQuantity < 1) {
             return;
         }
 
-        const productToUpdate = cart.find((product: any) => {
+        const productToUpdate = cart.find((product) => {
             return product.id === productId;
         });
         if (!productToUpdate) {
             return;
         }
 
-        const firstIndex = cart.findIndex((product: any) => {
+        const firstIndex = cart.findIndex((product) => {
             return product.id === productId;
         });
 
-        const updatedCart = cart.filter((product: any) => {
+        const updatedCart = cart.filter((product) => {
             return product.id !== productId;
         });
 
