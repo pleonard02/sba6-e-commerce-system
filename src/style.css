@@ -148,7 +148,8 @@ header {
 .description-container {
   border-radius: 10px;
   width: 100%;
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   background-color: #f7f2e9;
   border-radius: 11px;
   display: flex;
@@ -364,6 +365,26 @@ header {
   grid-template-columns: 2fr 1fr 1fr;
   max-width: 1000px;
   margin: 0 auto;
+}
+
+.cart-message {
+  color: var(--serenitea-green);
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  width: fit-content;
+}
+
+#cart-message {
+  width: 80%;
+  max-width: 1000px;
+  margin: 12px auto 20px; 
+  text-align: center;
+  padding: 10px 14px;
+  box-sizing: border-box;
+  color: var(--serenitea-green);
 }
 
 .cart-product {

@@ -119,6 +119,13 @@ async function runApp() {
                     if (cartIcon) {
                         cartIcon.src = "./src/assets/serenitea_full_cart.png";
                     }
+
+                    const cartMessage = document.createElement("p");
+
+                    cartMessage.textContent = `Added ${product.title} to cart!`;
+                    cartMessage.classList.add("cart-message");
+
+                    card.append(cartMessage);
                 });
             }
         });

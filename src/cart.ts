@@ -1,6 +1,7 @@
 import { calculateTax } from "./utils/taxCalculator";
 import type { ProductData } from "./types/ProductData";
 
+const cartMessage = document.querySelector<HTMLParagraphElement>("#cart-message");
 const cartSubtotalElement = document.querySelector<HTMLElement>("#cart-subtotal");
 const cartTotalElement = document.querySelector<HTMLElement>("#cart-total");
 const searchForm = document.querySelector<HTMLFormElement>("#cart-search-form");
@@ -11,6 +12,13 @@ const cartIcon = document.querySelector<HTMLImageElement>("#cart-icon");
 
 let cartSubtotal = 0;
 let cartTax = 0;
+
+const savedMessage = sessionStorage.getItem("cartMessage");
+
+if (cartMessage && savedMessage) {
+    cartMessage.textContent = savedMessage;
+    sessionStorage.removeItem("cartMessage");
+}
 
 searchForm?.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -133,6 +141,10 @@ cartItems?.addEventListener("click", (event) => {
     if (target.classList.contains("remove-cart-btn")) {
         const productId = Number(target.dataset.id);
 
+        const productToRemove = cart.find((product) => {
+            return product.id === productId;
+        });
+
         const updatedCart = cart.filter((product) => {
             return product.id !== productId;
         });
@@ -141,6 +153,13 @@ cartItems?.addEventListener("click", (event) => {
             "cart",
             JSON.stringify(updatedCart)
         );
+
+        if (productToRemove) {
+            sessionStorage.setItem(
+                "cartMessage", 
+                `${productToRemove.title} was removed from your cart.`
+            );
+        }
 
         window.location.reload();
     }
@@ -185,6 +204,11 @@ cartItems?.addEventListener("click", (event) => {
         updatedCart.splice(firstIndex, 0, ...updatedQuantity);
 
         localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+        sessionStorage.setItem(
+            "cartMessage",
+            `${productToUpdate.title} quantity updated to ${newQuantity}.`
+        );
 
         window.location.reload();
     }
